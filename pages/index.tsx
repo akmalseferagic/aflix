@@ -9,11 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 export async function getStaticProps() {
   const res = await axios(`${server}/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`)
   const movies = res.data
-  
- 
   return {
     props : { movies }
-   }
+  }
 } 
 
 export default function Home({movies}: any) {
@@ -30,12 +28,10 @@ export default function Home({movies}: any) {
       </div>
       <div className="w-full grid grid-cols-3 gap-2">
         {movies.results?.map((i: any) => (
-            <Card movie={i}/>
+          <Card movie={i}/>
         ))}
       </div>
-
     </main>
-    
   )
 }
 

@@ -19,6 +19,7 @@ const Card = ({movie}: CardProps & any) => {
         console.log('asjbdksjab')
         setIsOpen(!isOpen);
     };
+
     const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
 
   return (
@@ -28,7 +29,7 @@ const Card = ({movie}: CardProps & any) => {
     {/* ini modal */}
     <Modal isOpen={isOpen} onClose={handleModalToggle}>
     <div>
-        <Image width={700} height={800} src={imageUrl} className="w-full h-64 rounded mb-4" alt=''/>
+        <img src={imageUrl} className="w-full h-auto max-h-64 object-contain rounded mb-4" alt=''/>
         <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-2">
                 <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
@@ -47,7 +48,7 @@ const Card = ({movie}: CardProps & any) => {
     </Modal>
 
     <div>
-        <img src={movie.poster_path} className="w-full h-64 rounded mb-4" alt=''/>
+        <img src={imageUrl} className="w-full object-contain h-auto max-h-64 rounded mb-4" alt=''/>
         <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
         <p className="text-sm text-gray-500">{movie.overview}</p>
     </div>
