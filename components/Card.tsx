@@ -19,9 +19,7 @@ const Card = ({movie}: CardProps & any) => {
         console.log('asjbdksjab')
         setIsOpen(!isOpen);
     };
-
-    const imageUrl = movie.poster_path ?
-    `https://image.tmdb.org/t/p/w500${movie.poster_path}`: `/noImage.jpeg`
+    const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
 
   return (
     
