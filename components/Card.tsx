@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "./ModalDetail";
+import Image from "next/image";
 
 interface CardProps {
     title?: string
@@ -18,6 +19,10 @@ const Card = ({movie}: CardProps & any) => {
         console.log('asjbdksjab')
         setIsOpen(!isOpen);
     };
+
+    const imageUrl = movie.poster_path ?
+    `https://image.tmdb.org/t/p/w500${movie.poster_path}`: `/noImage.jpeg`
+
   return (
     
     <div className="bg-white flex flex-col content-between shadow rounded p-4">
@@ -25,7 +30,7 @@ const Card = ({movie}: CardProps & any) => {
     {/* ini modal */}
     <Modal isOpen={isOpen} onClose={handleModalToggle}>
     <div>
-        <img src={movie.poster_path} className="w-full h-64 rounded mb-4" alt=''/>
+        <Image width={700} height={800} src={imageUrl} className="w-full h-64 rounded mb-4" alt=''/>
         <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-2">
                 <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
